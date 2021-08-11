@@ -14,7 +14,7 @@ public class Program {
         } catch (IOException ex) {
             System.err.println("File error");
         }
-
+        
         mainMenu.addNewOption("1. Add a phone");
         mainMenu.addNewOption("2. Search a phone by model");
         mainMenu.addNewOption("3. Remove the phone by model");

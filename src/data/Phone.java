@@ -76,7 +76,7 @@ public class Phone implements Comparable<Phone>{
     }
     
     public void showDetail() {
-        System.out.printf("|%8s|%2dGB|%4dMP|%9.1f''|%8.2f$|%-8s|%-12s|\n"
+        System.out.printf("|%8s|%3dGB|%4dMP|%9.1f''|%8.2f$|%-8s|%-15s|\n"
                 , model, ram, primaryCamera, screenSize, price, color, brand);
     }
 

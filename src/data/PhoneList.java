@@ -55,8 +55,8 @@ public class PhoneList implements Serializable {
         } else {
             System.out.println("Here is the phone that you wanna search");
             String header;
-            header = String.format("|%-8s|%-4s|%-6s|%-11s|%-9s|%-8s|%-12s|",
-                " MODEL  ", "RAM", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");
+            header = String.format("|%-8s|%-5s|%-6s|%-11s|%-9s|%-8s|%-15s|",
+                " MODEL  ", " RAM ", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");
             System.out.println(header);
             for (Phone p: res)
                 p.showDetail();
@@ -77,8 +77,8 @@ public class PhoneList implements Serializable {
         } else {
             System.out.println("Here is the phone that you wanna search");
             String header;
-            header = String.format("|%-8s|%-4s|%-6s|%-11s|%-9s|%-8s|%-12s|",
-                " MODEL  ", "RAM", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");
+            header = String.format("|%-8s|%-5s|%-6s|%-11s|%-9s|%-8s|%-15s|",
+                " MODEL  ", " RAM ", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");
             System.out.println(header);
             for (Phone p: res)
                 p.showDetail();
@@ -101,14 +101,14 @@ public class PhoneList implements Serializable {
         Phone x;
         model = MyToys.getID("Enter phone's model (AA-DDDDD)\nA matches any alphabet\nD matches any digit: ", "Invalid", "^[A-Za-z]{2}-\\d{5}$");
         x = searchObjectPhoneByModel(model);
-        System.out.println("------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------");
         if (x == null)
             System.err.println("Not found");
         else {
             System.out.println("Here is the phone that you wanna search");
             String header;
-            header = String.format("|%-8s|%-4s|%-6s|%-11s|%-9s|%-8s|%-12s|",
-                " MODEL  ", "RAM", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");
+            header = String.format("|%-8s|%-5s|%-6s|%-11s|%-9s|%-8s|%-15s|",
+                " MODEL  ", " RAM ", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");
             System.out.println(header);
             x.showDetail();
         }
@@ -157,8 +157,8 @@ public class PhoneList implements Serializable {
         if (pos == -1) {
             System.err.println("Not found");
         } else {
-            String header = String.format("|%-8s|%-4s|%-6s|%-11s|%-9s|%-8s|%-12s|",
-                " MODEL  ", "RAM", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");
+            String header = String.format("|%-8s|%-5s|%-6s|%-11s|%-9s|%-8s|%-15s|",
+                " MODEL  ", " RAM ", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");
             System.out.println(header);
             phoneList.get(pos).showDetail();
             boolean check = MyToys.getBoolean("Are you sure removing this phone (Y/N): ",
@@ -177,9 +177,9 @@ public class PhoneList implements Serializable {
         }
         Collections.sort(phoneList);
         System.out.println("Here is the phone list");
-        System.out.println(" ________________________________________________________________ ");
-        String header = String.format("|%-8s|%-4s|%-6s|%-11s|%-9s|%-8s|%-12s|",
-            " MODEL  ", "RAM", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");
+        System.out.println(" ____________________________________________________________________ ");
+        String header = String.format("|%-8s|%-5s|%-6s|%-11s|%-9s|%-8s|%-15s|",
+            " MODEL  ", " RAM ", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");
         System.out.println(header);
         for (Phone p: phoneList) {
             p.showDetail();
