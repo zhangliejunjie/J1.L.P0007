@@ -4,17 +4,17 @@ import java.io.Serializable;
 import java.util.*;
 import util.MyToys;
 
-public class PhoneList implements Serializable{
-    private ArrayList < Phone > phoneList = new ArrayList<>();
+public class PhoneList implements Serializable {
+    private ArrayList < Phone > phoneList = new ArrayList < > ();
 
-    public ArrayList<Phone> getPhoneList() {
+    public ArrayList < Phone > getPhoneList() {
         return phoneList;
     }
 
-    public void setPhoneList(ArrayList<Phone> phoneList) {
+    public void setPhoneList(ArrayList < Phone > phoneList) {
         this.phoneList = phoneList;
     }
-    
+
     //    search Phone ra vị trí
     public int searchPhoneByModel(String model) {
         for (int i = 0; i < phoneList.size(); i++)
@@ -82,13 +82,13 @@ public class PhoneList implements Serializable{
             System.out.println(header);
             for (Phone p: res)
                 p.showDetail();
-        }
-        int choice = MyToys.getAnInteger("Enter number of row you wanna remove: ", "Invalid", 1, res.size());
-        boolean check = MyToys.getBoolean("Are you sure removing this phone (Y/N): ",
-            "Invalid");
-        if (check) {
-            phoneList.remove(choice - 1);
-            System.out.println("A phone's profile is sucessfully removed");
+            int choice = MyToys.getAnInteger("Enter number of row you wanna remove: ", "Invalid", 1, res.size());
+            boolean check = MyToys.getBoolean("Are you sure removing this phone (Y/N): ",
+                "Invalid");
+            if (check) {
+                phoneList.remove(choice - 1);
+                System.out.println("A phone's profile is sucessfully removed");
+            }
         }
     }
 

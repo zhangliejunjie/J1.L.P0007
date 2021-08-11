@@ -87,7 +87,7 @@ public class Phone implements Comparable<Phone>{
 
     @Override
     public String toString() {
-        return model + "#" + ram + "#" + primaryCamera + "#" + screenSize + "#" + price + "#" + color + "#" + brand;
+        return model + "," + ram + "," + primaryCamera + "," + screenSize + "," + price + "," + color + "," + brand;
     }
     
 }

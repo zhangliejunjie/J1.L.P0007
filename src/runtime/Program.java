@@ -10,7 +10,7 @@ public class Program {
         Menu mainMenu = new Menu("HKT Store - @ 2021 by <SE161289 - Tứn Kịt> \nSelect the options below:");
         PhoneList pL = new PhoneList();
         try {
-            pL.setPhoneList(FileDAO.readTextFile("database.txt"));
+            pL.setPhoneList(FileDAO.readTextFile("database.csv"));
         } catch (IOException ex) {
             System.err.println("File error");
         }
@@ -27,22 +27,32 @@ public class Program {
             switch (choice) {
                 case 1:
                     pL.addNewPhone();
+                    try {
+                        FileDAO.writeTextFile("database.csv", pL.getPhoneList());
+                    } catch (IOException ex) {
+                        System.err.println("File error");
+                    }
                     break;
                 case 2:
                     pL.searchPhoneList();
                     break;
                 case 3:
                     pL.remove();
-                    break;
-                case 4:
-                    pL.printManagerListAscByModel();
-                    break;
-                case 5:
                     try {
-                        FileDAO.writeTextFile("database.txt", pL.getPhoneList());
+                        FileDAO.writeTextFile("database.csv", pL.getPhoneList());
                     } catch (IOException ex) {
                         System.err.println("File error");
                     }
+                    break;
+                case 4:
+                    pL.printManagerListAscByModel();
+                    try {
+                        FileDAO.writeTextFile("database.csv", pL.getPhoneList());
+                    } catch (IOException ex) {
+                        System.err.println("File error");
+                    }
+                    break;
+                case 5:
                     break;
             }
         } while (choice != 5);
