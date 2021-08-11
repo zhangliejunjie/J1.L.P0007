@@ -1,6 +1,6 @@
 package data;
 
-public class Phone {
+public class Phone implements Comparable<Phone>{
     private String model;
     private int ram;
     private int primaryCamera;
@@ -76,7 +76,12 @@ public class Phone {
     }
     
     public void showDetail() {
-        System.out.printf("|%-8s|%2d GB|%2d MP|%4.1f ''|%-7.2f $|%-8s|%-12s|"
+        System.out.printf("|%8s|%2dGB|%4dMP|%9.1f''|%8.2f$|%-8s|%-12s|\n"
                 , model, ram, primaryCamera, screenSize, price, color, brand);
+    }
+
+    @Override
+    public int compareTo(Phone that) {
+        return this.model.compareToIgnoreCase(that.getModel());
     }
 }

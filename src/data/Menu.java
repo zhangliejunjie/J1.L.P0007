@@ -21,7 +21,7 @@ public class Menu {
             System.out.println("There is no item in menu");
             return;
         }
-        System.out.println("-------------------------------------------------");
+        System.out.println("------------------------------------------------------------------");
         System.out.println("Welcome to " + menuTitle);
         for (String x : optionList) {
             System.out.println(x);
