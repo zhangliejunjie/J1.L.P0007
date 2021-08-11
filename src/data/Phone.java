@@ -84,4 +84,10 @@ public class Phone implements Comparable<Phone>{
     public int compareTo(Phone that) {
         return this.model.compareToIgnoreCase(that.getModel());
     }
+
+    @Override
+    public String toString() {
+        return model + "#" + ram + "#" + primaryCamera + "#" + screenSize + "#" + price + "#" + color + "#" + brand;
+    }
+    
 }

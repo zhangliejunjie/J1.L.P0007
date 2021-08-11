@@ -1,10 +1,20 @@
 package data;
 
+import java.io.Serializable;
 import java.util.*;
 import util.MyToys;
 
-public class PhoneList {
-    private ArrayList < Phone > phoneList = new ArrayList < > ();
+public class PhoneList implements Serializable{
+    private ArrayList < Phone > phoneList = new ArrayList<>();
+
+    public ArrayList<Phone> getPhoneList() {
+        return phoneList;
+    }
+
+    public void setPhoneList(ArrayList<Phone> phoneList) {
+        this.phoneList = phoneList;
+    }
+    
     //    search Phone ra vị trí
     public int searchPhoneByModel(String model) {
         for (int i = 0; i < phoneList.size(); i++)

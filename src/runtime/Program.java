@@ -1,12 +1,20 @@
 package runtime;
 
+import data.FileDAO;
 import data.Menu;
 import data.PhoneList;
+import java.io.IOException;
 
 public class Program {
     public static void main(String[] args) {
         Menu mainMenu = new Menu("HKT Store - @ 2021 by <SE161289 - Tứn Kịt> \nSelect the options below:");
         PhoneList pL = new PhoneList();
+        try {
+            pL.setPhoneList(FileDAO.readTextFile("database.txt"));
+        } catch (IOException ex) {
+            System.err.println("File error");
+        }
+
         mainMenu.addNewOption("1. Add a phone");
         mainMenu.addNewOption("2. Search a phone by model");
         mainMenu.addNewOption("3. Remove the phone by model");
@@ -30,6 +38,11 @@ public class Program {
                     pL.printManagerListAscByModel();
                     break;
                 case 5:
+                    try {
+                        FileDAO.writeTextFile("database.txt", pL.getPhoneList());
+                    } catch (IOException ex) {
+                        System.err.println("File error");
+                    }
                     break;
             }
         } while (choice != 5);
