@@ -21,10 +21,10 @@ public class Program {
                     pL.addNewPhone();
                     break;
                 case 2:
-                    pL.searchPhoneByModel();
+                    pL.searchPhoneList();
                     break;
                 case 3:
-                    pL.removePhone();
+                    pL.remove();
                     break;
                 case 4:
                     pL.printManagerListAscByModel();

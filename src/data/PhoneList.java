@@ -22,10 +22,66 @@ public class PhoneList {
         return null;
     }
     //
-    public ArrayList<Phone> searchListPhoneByModel() {
-        return null;
-    } 
-    
+    private ArrayList < Phone > searchListPhoneByModel(String key) {
+        ArrayList < Phone > res = new ArrayList < > ();
+        for (Phone p: phoneList) {
+            if (p.getModel().contains(key))
+                res.add(p);
+        }
+        return res;
+    }
+
+    public void searchPhoneList() {
+        if (phoneList.isEmpty()) {
+            System.out.println("The storage is empty. Nothing to print.");
+            return;
+        }
+        String key = MyToys.getString("Enter phone's model: ", "I can't understand you");
+        key = key.toUpperCase();
+        ArrayList < Phone > res;
+        res = searchListPhoneByModel(key);
+        if (res.isEmpty()) {
+            System.err.println("Not found");
+        } else {
+            System.out.println("Here is the phone that you wanna search");
+            String header;
+            header = String.format("|%-8s|%-4s|%-6s|%-11s|%-9s|%-8s|%-12s|",
+                " MODEL  ", "RAM", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");
+            System.out.println(header);
+            for (Phone p: res)
+                p.showDetail();
+        }
+    }
+
+    public void remove() {
+        if (phoneList.isEmpty()) {
+            System.out.println("The storage is empty. Nothing to print.");
+            return;
+        }
+        String key = MyToys.getString("Enter phone's model: ", "I can't understand you");
+        key = key.toUpperCase();
+        ArrayList < Phone > res;
+        res = searchListPhoneByModel(key);
+        if (res.isEmpty()) {
+            System.err.println("Not found");
+        } else {
+            System.out.println("Here is the phone that you wanna search");
+            String header;
+            header = String.format("|%-8s|%-4s|%-6s|%-11s|%-9s|%-8s|%-12s|",
+                " MODEL  ", "RAM", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");
+            System.out.println(header);
+            for (Phone p: res)
+                p.showDetail();
+        }
+        int choice = MyToys.getAnInteger("Enter number of row you wanna remove: ", "Invalid", 1, res.size());
+        boolean check = MyToys.getBoolean("Are you sure removing this phone (Y/N): ",
+            "Invalid");
+        if (check) {
+            phoneList.remove(choice - 1);
+            System.out.println("A phone's profile is sucessfully removed");
+        }
+    }
+
     public void searchPhoneByModel() {
         if (phoneList.isEmpty()) {
             System.out.println("The storage is empty. Nothing to print.");
@@ -42,7 +98,7 @@ public class PhoneList {
             System.out.println("Here is the phone that you wanna search");
             String header;
             header = String.format("|%-8s|%-4s|%-6s|%-11s|%-9s|%-8s|%-12s|",
-                "MODEL", "RAM", "PRI-CAM", "SCR-SIZE", "PRICE", "COLOR", "BRANCH");
+                " MODEL  ", "RAM", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");
             System.out.println(header);
             x.showDetail();
         }
@@ -92,7 +148,7 @@ public class PhoneList {
             System.err.println("Not found");
         } else {
             String header = String.format("|%-8s|%-4s|%-6s|%-11s|%-9s|%-8s|%-12s|",
-            " MODEL  ", "RAM", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");
+                " MODEL  ", "RAM", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");
             System.out.println(header);
             phoneList.get(pos).showDetail();
             boolean check = MyToys.getBoolean("Are you sure removing this phone (Y/N): ",
@@ -111,9 +167,9 @@ public class PhoneList {
         }
         Collections.sort(phoneList);
         System.out.println("Here is the phone list");
-        System.out.println(" ________________________________________________________________ ");        
+        System.out.println(" ________________________________________________________________ ");
         String header = String.format("|%-8s|%-4s|%-6s|%-11s|%-9s|%-8s|%-12s|",
-            " MODEL  ", "RAM", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");      
+            " MODEL  ", "RAM", "CAMERA", "SCREEN SIZE", "  PRICE  ", "COLOR", "BRANCH");
         System.out.println(header);
         for (Phone p: phoneList) {
             p.showDetail();
