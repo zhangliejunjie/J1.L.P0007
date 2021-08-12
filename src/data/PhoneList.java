@@ -86,7 +86,7 @@ public class PhoneList implements Serializable {
             boolean check = MyToys.getBoolean("Are you sure removing this phone (Y/N): ",
                 "Invalid");
             if (check) {
-                phoneList.remove(choice - 1);
+                phoneList.remove(res.get(choice - 1));
                 System.out.println("A phone's profile is sucessfully removed");
             }
         }

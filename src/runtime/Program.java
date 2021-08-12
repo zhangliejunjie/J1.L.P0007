@@ -27,32 +27,22 @@ public class Program {
             switch (choice) {
                 case 1:
                     pL.addNewPhone();
-                    try {
-                        FileDAO.writeTextFile("database.csv", pL.getPhoneList());
-                    } catch (IOException ex) {
-                        System.err.println("File error");
-                    }
                     break;
                 case 2:
                     pL.searchPhoneList();
                     break;
                 case 3:
                     pL.remove();
-                    try {
-                        FileDAO.writeTextFile("database.csv", pL.getPhoneList());
-                    } catch (IOException ex) {
-                        System.err.println("File error");
-                    }
                     break;
                 case 4:
                     pL.printManagerListAscByModel();
+                    break;
+                case 5:
                     try {
                         FileDAO.writeTextFile("database.csv", pL.getPhoneList());
                     } catch (IOException ex) {
                         System.err.println("File error");
                     }
-                    break;
-                case 5:
                     break;
             }
         } while (choice != 5);
